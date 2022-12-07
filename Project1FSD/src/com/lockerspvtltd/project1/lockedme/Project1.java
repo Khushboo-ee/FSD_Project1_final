@@ -4,6 +4,28 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Scanner;
 
+class UserDetails{
+	String name;
+	String mail;
+	String mob;
+	public void setData() {
+			Scanner scan = new Scanner(System.in);
+			System.out.println("Enter your name: ");
+			this.name = scan.nextLine();
+			System.out.println("Enter your Email ID: ");
+			this.mail = scan.nextLine();
+			System.out.println("Enter your Mobile no: ");
+			this.mob = scan.nextLine();
+		}
+	public void getData() {
+		System.out.println("-----------------------------------------------");
+		System.out.println("All your details: ");
+		System.out.println("Name: "+name+"\n"+"Email ID: "+mail+"\n"+"Mobile no: "+mob);
+		System.out.println("-----------------------------------------------");
+	}
+	
+}
+
 class Option1{
 	public int retrieval =0;
 	public void RetrieveFiles() {
@@ -14,8 +36,8 @@ class Option1{
 			String path = sc.nextLine();
 			//using directory path input specified by the user
 		    File dir = new File(path);
-		    /* To run operation for predefined directory.
-			 File dir = new File("C:\\Users\\khush\\Desktop\\Simplilearn FSD\\FilesForProject1");*/
+	 /* To run operation for predefined directory.
+	File dir = new File("C:\\Users\\khush\\Desktop\\Simplilearn FSD\\FilesForProject1");*/
 		    
 		    	if(dir.isDirectory())
 		    	{
@@ -52,23 +74,12 @@ public class Project1 {
 		System.out.println("Welcome to LockedMe.com presented by Lockers Pvt Ltd.");
 		System.out.println("This is developed by Khushboo Sharma");
 		System.out.println("------------------------------------------------------");
-		System.out.println("Please! Enter your details below: ");
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter your full name:");
-		String name = sc.nextLine();
-		System.out.println("Enter your current city:");
-		String city = sc.nextLine();
-		System.out.println("Enter your valid Email Id:");
-		String mail = sc.nextLine();
-		System.out.println("Enter your valid mobile number");
-		String mob = sc.nextLine();
-		//Displaying user details
-		System.out.println("All your details: ");
-		System.out.println("Name: "+name+"\n"+"Current city: "+city+"\n"+"Email ID: "+mail+"\n"+"Mobile no: "+mob);
-		System.out.println("---------------------------------------");
+		UserDetails ud = new UserDetails();
+		ud.setData();
+		ud.getData();
 		Option1 O1 = new Option1();
 		System.out.println("Enter 1 if you want to retrieve files from any given folder or else enter 0: ");
-		//Scanner sc = new Scanner(System.in);
+		Scanner sc = new Scanner(System.in);
 		 O1.retrieval = sc.nextInt();
 		 O1.RetrieveFiles();
 	}
