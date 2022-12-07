@@ -10,7 +10,7 @@ class Option1{
 		if (retrieval==1) {
 			//Entering path of directory
 			Scanner sc = new Scanner(System.in);
-			System.out.println("Enter a path for the folder of which files to be extraxted: ");
+			System.out.println("Enter a path for the folder of which files to be extracted: ");
 			String path = sc.nextLine();
 			//using directory path input specified by the user
 		    File dir = new File(path);
@@ -49,9 +49,26 @@ class Option1{
 public class Project1 {
 
 	public static void main(String[] args) {
+		System.out.println("Welcome to LockedMe.com presented by Lockers Pvt Ltd.");
+		System.out.println("This is developed by Khushboo Sharma");
+		System.out.println("------------------------------------------------------");
+		System.out.println("Please! Enter your details below: ");
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter your full name:");
+		String name = sc.nextLine();
+		System.out.println("Enter your current city:");
+		String city = sc.nextLine();
+		System.out.println("Enter your valid Email Id:");
+		String mail = sc.nextLine();
+		System.out.println("Enter your valid mobile number");
+		String mob = sc.nextLine();
+		//Displaying user details
+		System.out.println("All your details: ");
+		System.out.println("Name: "+name+"\n"+"Current city: "+city+"\n"+"Email ID: "+mail+"\n"+"Mobile no: "+mob);
+		System.out.println("---------------------------------------");
 		Option1 O1 = new Option1();
 		System.out.println("Enter 1 if you want to retrieve files from any given folder or else enter 0: ");
-		Scanner sc = new Scanner(System.in);
+		//Scanner sc = new Scanner(System.in);
 		 O1.retrieval = sc.nextInt();
 		 O1.RetrieveFiles();
 	}
