@@ -35,8 +35,7 @@ class Option1{
 			String path = sc.nextLine();
 			//using directory path input specified by the user
 		    File dir = new File(path);
-	 /* To run operation for predefined directory.
-	File dir = new File("C:\\Users\\khush\\Desktop\\Simplilearn FSD\\FilesForProject1");*/
+	
 		    
 		    	if(dir.isDirectory())
 		    	{
@@ -127,27 +126,57 @@ class Option2 {
 		}
 	}
 }
-public class Project1 {
-
-	public static void main(String[] args) {
+class Functions{
+	int func = 2;
+	public void WelcomePage() {
+		System.out.println("Welcome Everyone!!");
 		System.out.println("Welcome to LockedMe.com presented by Lockers Pvt Ltd.");
 		System.out.println("This is developed by Khushboo Sharma");
 		System.out.println("------------------------------------------------------");
-		UserDetails ud = new UserDetails();
-		ud.setData();
-		ud.getData();
-		Option1 O1 = new Option1();
-		System.out.println("Enter 1 if you want to retrieve files from any given folder or else enter 0: ");
+	}
+	public void option3() {
+		if (func==2) {
+			WelcomePage();
+		} 
+		else if (func==1) {
+			StartFunctions();
+		} 
+		else if (func==0) {
+			System.out.println("Thanks for visiting our page,visit again!!");
+			System.exit(0);
+		}
+		else {
+			System.err.println("Inavalid Entry");
+		}
+	}
+	
+	public void StartFunctions() {
+			UserDetails ud = new UserDetails();
+			ud.setData();
+			ud.getData();
+			Scanner sc = new Scanner(System.in);
+			Option1 O1 = new Option1();
+			System.out.println("Enter 1 if you want to retrieve files from any given folder or else enter 0: ");
+			 O1.retrieval = sc.nextInt();
+			 O1.RetrieveFiles();
+			 Option2 O2 = new Option2();
+			 System.out.println("Enter 1 to add a file in the directory");
+			 System.out.println("Enter 2 to delte a file from the directory.");
+			 System.out.println("Enter 3 to search for a file in the directory.");
+			 System.out.println("Enter 0 to exit the program.");
+			 O2.opt2 = sc.nextInt();
+			 O2.FileOps();
+		}
+}
+public class Project1 {
+
+	public static void main(String[] args) {
+		Functions f = new Functions();
+		f.WelcomePage();
 		Scanner sc = new Scanner(System.in);
-		 O1.retrieval = sc.nextInt();
-		 O1.RetrieveFiles();
-		 Option2 O2 = new Option2();
-		 System.out.println("Enter 1 to add a file in the directory");
-		 System.out.println("Enter 2 to delte a file from the directory.");
-		 System.out.println("Enter 3 to search for a file in the directory.");
-		 System.out.println("Enter 0 to exit the program.");
-		 O2.opt2 = sc.nextInt();
-		 O2.FileOps();
+		System.out.println("Enter 0 to exit, 1 to start all the functions or 2 to return to the welcome page.");
+		f.func = sc.nextInt();
+		f.option3();
 	}
 
 }
