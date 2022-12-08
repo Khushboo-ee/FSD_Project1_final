@@ -5,17 +5,15 @@ import java.util.Comparator;
 import java.util.Scanner;
 
 class UserDetails{
-	String name;
-	String mail;
-	String mob;
+	String name,mail,mob;
 	public void setData() {
-			Scanner scan = new Scanner(System.in);
+			Scanner sc = new Scanner(System.in);
 			System.out.println("Enter your name: ");
-			this.name = scan.nextLine();
+			this.name = sc.nextLine();
 			System.out.println("Enter your Email ID: ");
-			this.mail = scan.nextLine();
+			this.mail = sc.nextLine();
 			System.out.println("Enter your Mobile no: ");
-			this.mob = scan.nextLine();
+			this.mob = sc.nextLine();
 		}
 	public void getData() {
 		System.out.println("-----------------------------------------------");
@@ -35,11 +33,8 @@ class Option1{
 			String path = sc.nextLine();
 			//using directory path input specified by the user
 		    File dir = new File(path);
-	
-		    
 		    	if(dir.isDirectory())
-		    	{
-		    		// Fetching the list from the directory
+		    	{// Fetching the list from the directory
 		    		File[] docs = dir.listFiles();
 		    			if (docs.length>0) {
 		    				// Sort files by name
@@ -50,8 +45,7 @@ class Option1{
 		    					return ((File) f1).getName().compareTo(((File) f2).getName());
 		    					}
 		    				});
-		    				
-			      //Prints the files in file name ascending order
+		    	 //Prints the files in file name ascending order
 			      System.out.println("After sorting by name in ascending order: ");
 			      System.out.println("-------------------------------------------");
 			      for(File file:docs){
@@ -134,7 +128,24 @@ class Functions{
 		System.out.println("This is developed by Khushboo Sharma");
 		System.out.println("------------------------------------------------------");
 	}
-	public void option3() {
+	public void StartFunctions() {
+		UserDetails ud = new UserDetails();
+		ud.setData();
+		ud.getData();
+		Scanner sc = new Scanner(System.in);
+		Option1 O1 = new Option1();
+		System.out.println("Enter 1 if you want to retrieve files from any given folder or else enter 0: ");
+		 O1.retrieval = sc.nextInt();
+		 O1.RetrieveFiles();
+		 Option2 O2 = new Option2();
+		 System.out.println("Enter 1 to add a file in the directory");
+		 System.out.println("Enter 2 to delte a file from the directory.");
+		 System.out.println("Enter 3 to search for a file in the directory.");
+		 System.out.println("Enter 0 to exit the program.");
+		 O2.opt2 = sc.nextInt();
+		 O2.FileOps();
+	}
+	public void Option3() {
 		if (func==2) {
 			WelcomePage();
 		} 
@@ -149,24 +160,6 @@ class Functions{
 			System.err.println("Inavalid Entry");
 		}
 	}
-	
-	public void StartFunctions() {
-			UserDetails ud = new UserDetails();
-			ud.setData();
-			ud.getData();
-			Scanner sc = new Scanner(System.in);
-			Option1 O1 = new Option1();
-			System.out.println("Enter 1 if you want to retrieve files from any given folder or else enter 0: ");
-			 O1.retrieval = sc.nextInt();
-			 O1.RetrieveFiles();
-			 Option2 O2 = new Option2();
-			 System.out.println("Enter 1 to add a file in the directory");
-			 System.out.println("Enter 2 to delte a file from the directory.");
-			 System.out.println("Enter 3 to search for a file in the directory.");
-			 System.out.println("Enter 0 to exit the program.");
-			 O2.opt2 = sc.nextInt();
-			 O2.FileOps();
-		}
 }
 public class Project1 {
 
@@ -176,7 +169,7 @@ public class Project1 {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter 0 to exit, 1 to start all the functions or 2 to return to the welcome page.");
 		f.func = sc.nextInt();
-		f.option3();
+		f.Option3();
 	}
 
 }
